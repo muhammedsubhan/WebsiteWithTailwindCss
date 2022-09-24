@@ -750,6 +750,12 @@ video {
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-24 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(6rem * var(--tw-space-x-reverse));
+  margin-left: calc(6rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .self-end {
   align-self: flex-end;
 }
@@ -785,6 +791,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-darkBlue {
+  --tw-border-opacity: 1;
+  border-color: hsl(228 39% 23% / var(--tw-border-opacity));
+}
+
 .bg-brightRed {
   --tw-bg-opacity: 1;
   background-color: hsl(12 88% 59% / var(--tw-bg-opacity));
@@ -810,12 +821,29 @@ video {
   background-color: hsl(233 12% 13% / var(--tw-bg-opacity));
 }
 
+.bg-darkBlue {
+  --tw-bg-opacity: 1;
+  background-color: hsl(228 39% 23% / var(--tw-bg-opacity));
+}
+
 .p-6 {
   padding: 1.5rem;
 }
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-6 {
@@ -936,6 +964,86 @@ video {
 
 .ease-linear {
   transition-timing-function: linear;
+}
+
+body {
+  background-image: url("../img/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 90% -25%;
+}
+
+#cta {
+  background-image: url("../img/bg-simplify-section-desktop.svg");
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+  body {
+    background-position: 50px -50px;
+    background-size: 500px;
+  }
+
+  #cta {
+    background-image: url("../img/bg-simplify-section-mobile.svg");
+  }
+}
+
+/* Hamburger menu */
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open{
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top{
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle{
+  display: none;
+}
+
+.open .hamburger-bottom{
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.first\:border-solid:first-child {
+  border-style: solid;
+}
+
+.hover\:border-white:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .hover\:bg-transparent:hover {
